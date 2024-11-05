@@ -1,0 +1,429 @@
+/*GOOGLE FONTS*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+/*VARIABLES CSS*/
+
+:root {
+  --header-height: 70px; /* Height of the header */
+  
+  /* Colors */
+  --first-color: #A29596; /* Primary color */
+  --primary: #A29596; /* Same as first color */
+  --second-color: #33303D; /* Secondary color */
+  --black-color: #111111; /* Black color */
+  --white-color: #734f35; /* White color variant */
+
+  /* Font and typography */
+  --body-font: 'Dancing Script', cursive; /* Body font */
+  --biggest-font-size: 1.5rem; /* Largest font size */
+  --big-font-size: 1.5rem; /* Big font size */
+  --normal-font-size: .938rem; /* Normal font size */
+  --smaller-font-size: .75rem; /* Smaller font size */
+
+  /* Font weight */
+  --font-medium: 500; /* Medium font weight */
+  --font-bold: 700; /* Bold font weight */
+
+  /* z index */
+  --z-fixed: 100; /* Fixed z-index */
+  --z-modal: 1000; /* Modal z-index */
+}
+
+.quantity__content span {
+    cursor: pointer; /* This makes the cursor change to a hand on hover */
+}
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 3.25rem;
+    --big-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/* BASE */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*LAYOUT */
+.grid {
+  max-width: 1200px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.header {
+  width: 100%; /* Full width of the header */
+  position: fixed; /* Fixed position on the viewport */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  z-index: var(--z-fixed); /* Stack order of the header */
+  background-color: var(--white-color); /* Header background color */
+}
+
+/*HEADER & NAV */
+.nav {
+  height: var(--header-height); /* Set height from variable */
+  display: flex;               /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center;        /* Center items vertically */
+}
+
+@media screen and (max-width: 968px) {
+  .nav__menu {
+    position: fixed;
+    left: -100%;
+    top: var(--header-height);
+    background-color: var(--white-color);
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    z-index: var(--z-fixed);
+    transition: .3s;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.nav__item {
+  font-weight: var(--font-bold);
+}
+
+.nav__link {
+  color: var(--black-color);
+  font-size: 30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav__toggle {
+  cursor: pointer;
+}
+
+/* Show menu */
+.show {
+  left: 0;
+}
+
+/*HOME */
+.home {
+  height: 100vh; /* Full viewport height */
+  display: grid; /* Use grid layout */
+  row-gap: 3.5rem; /* Space between rows */
+  grid-template-rows: repeat(2, max-content); /* Two rows, max height */
+  overflow: hidden; /* Hide overflow content */
+}
+
+/*tshirt*/
+.tshirt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  position: relative;
+}
+
+.tshirt__figure {
+  width: 400px;
+  height: 400px;
+  background-color: var(--primary);
+  border-radius: 70%;
+  transition: .5s;
+}
+
+.tshirt__img {
+  position: absolute; /* Position relative to nearest positioned ancestor */
+  max-width: 100%; /* Prevents image from exceeding container width */
+  top: 10%; /* Positions image 10% from the top */
+  left: 9%; /* Positions image 9% from the left */
+  right: 0; /* Aligns image to the right */
+  margin-top: -40px; /* Moves image up by 40px */
+  margin-left: 40px; /* Adds 40px left margin */
+  margin-right: auto; /* Automatically adjusts right margin */
+  transform: rotate(20deg); /* Rotates image 20 degrees */
+  opacity: 0; /* Makes image fully transparent */
+}
+
+.tshirt__img.shows {
+  opacity: 1;
+}
+
+.tshirt__colors {
+  position: absolute;
+  right: 2%;
+}
+
+.tshirt__color {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-bottom: .5rem;
+  cursor: pointer;
+}
+
+.tshirt__color.active {
+  border: 2px solid var(--white-color);
+  box-shadow: 0 0 2px black;
+}
+
+.tshirt__colors-one {
+  background-color: black;
+}
+
+.tshirt__colors-two {
+  background-color: rgb(151, 132, 6);
+}
+
+/*Data*/
+.data {
+  margin-bottom: 1.5rem;
+}
+
+.data__subtitle {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+}
+
+.data__title {
+  font-size: var(--biggest-font-size);
+  margin-bottom: .5rem;
+}
+
+.data__description {
+  font-size: var(--normal-font-size);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Size*/
+.size__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: 1rem;
+}
+
+.size__content {
+  display: flex;
+  color: #800a14;
+  
+}
+
+.size__tallas {
+  width: 30px;
+  height: 30px;
+  margin-right: .5rem;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: .29rem;
+  cursor: pointer;
+  color: black;
+}
+
+.size__tallas.active {
+  background-color:  #652008;
+  color: black;
+}
+
+/* Qty */
+.quantity__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: 1rem;
+}
+
+.quantity__content {
+  width: 100px; /* Set fixed width */
+  height: 30px; /* Set fixed height */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Center items vertically */
+  background-color: #652008; /* Dark brown background color */
+  color: black; /* Text color */
+  padding: .5rem; /* Add padding around content */
+  border-radius: .25rem; /* Rounded corners */
+}
+/* Price*/
+.price {
+  position: fixed; /* Fixes position to viewport */
+  left: 0; /* Aligns to the left */
+  bottom: 0; /* Aligns to the bottom */
+  width: 100%; /* Full width of the viewport */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Custom font stack */
+  padding: 1rem 0; /* Vertical padding */
+  background-color: var(--white-color); /* White background color */
+  border-radius: 1.5rem 1.5rem 0 0; /* Rounded top corners */
+  box-shadow: 0px 0px 20px rgba(17, 17, 17, 0.25); /* Soft shadow effect */
+  display: flex; /* Flexbox layout */
+  justify-content: space-evenly; /* Even spacing between items */
+  align-items: center; /* Center items vertically */
+}
+
+/* Title styling for price section */
+.price_title {
+  font-size: 35px ;
+  color: var(--black-color);
+}
+
+.price_button {
+  background-color: #652008; /* Button background color */
+  color: rgb(26, 21, 15); /* Text color */
+  padding: 1.25rem 3.125rem; /* Button padding */
+  border-radius: .5rem; /* Rounded corners */
+  transition: box-shadow .4s; /* Smooth shadow transition */
+}
+
+.price_button {
+  background-color: #652008; /* Button background color */
+  color: rgb(26, 21, 15); /* Text color */
+  padding: 1.25rem 3.125rem; /* Button padding */
+  border-radius: .5rem; /* Rounded corners */
+  transition: box-shadow .4s; /* Smooth shadow transition */
+}
+
+/*BREAKPOINTS*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .home {
+    row-gap: 1.5rem;
+  }
+  .tshirt__figure {
+    width: 210px;
+    height: 210px;
+  }
+  .tshirt img {
+    width: 230px;
+  }
+  .tshirt__colors {
+    right: 1%;
+  }
+  .price_title {
+    font-size: var(--normal-font-size);
+  }
+  .price_button {
+    padding: 1.25rem 2rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 480px) {
+  .data__description {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    grid-template-columns: repeat(2, max-content);
+    align-content: center;
+    justify-content: center;
+    column-gap: 6rem;
+    row-gap: 0;
+  }
+  .tshirt {
+    margin-top: 0;
+  }
+  .tshirt__colors {
+    right: -10%;
+  }
+  .tshirt__img {
+    left: -6%;
+  }
+  .actions {
+    margin-bottom: 3rem;
+  }
+  .price {
+    position: initial;
+    background-color: initial;
+    justify-content: space-between;
+    box-shadow: none;
+    padding: 0;
+  }
+  .price_title {
+    color: var(--black-color);
+    font-weight: var(--font-medium);
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 968px) {
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .tshirt {
+    margin: 0;
+  }
+  .tshirt__figure {
+    width: 430px;
+    height: 430px;
+  }
+  .tshirt__img {
+    width: 550px;
+    top: 13%;
+  }
+  .tshirt__colors {
+    right: initial;
+    bottom: -3rem;
+  }
+  .tshirt__colors span {
+    display: inline-block;
+  }
+  .info {
+    align-self: center;
+  }
+  .data {
+    margin-bottom: 2.5rem;
+  }
+  .data__subtitle {
+    font-size: 1.5rem;
+  }
+  .data__title {
+    margin-bottom: 1rem;
+  }
+  .size__tallas {
+    width: 34px;
+    height: 34px;
+    line-height: 35px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
