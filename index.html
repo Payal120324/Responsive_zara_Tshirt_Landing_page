@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Responsive TSHIRT card ZARA</title>
+    </head>
+    <body>
+        <!--HEADER -->
+        <header class="header">
+            <!--  NAV  -->
+            <nav class="nav grid">
+                <div class="nav__toggle" id="nav-toggle">
+                    <img src="icons8-menu.svg" height="60px" width="60px" alt="">
+                    
+                </div>
+
+                <div>
+                    <a class="nav__logo"><img src="icons8-logo.svg" height="60px" width="60px" alt=""></a>
+                </div>
+
+                <!-- NAV LIST -->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="" class="nav__link">MEN</a></li>
+                        <li class="nav__item"><a href="" class="nav__link">WOMEN</a></li>
+                        <li class="nav__item"><a href="" class="nav__link">KIDS</a></li>
+                        <li class="nav__item"><a href="" class="nav__link">CUSTOMIZE</a></li>
+                        <li class="nav__item"><a href="" class="nav__link">SALE</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__shop">
+                    <img src="online-shopping.png"  height="80px" width="80px" alt="">
+                </div>
+            </nav>
+        </header>
+
+        <!--HOME-->
+      
+        <main class="main grid">
+            <div class="home">
+                <!--tshirt-->
+                <div class="tshirt">
+                    <div class="tshirt__figure">
+                    </div>
+
+                    <div>
+                        <img src="C:\Users\Payal\.vscode\landing page\—Pngtree—black t-shirt mockup_3610326.png" height="400px" width="400px" alt="" class="tshirt__img shows" color="#A29596">
+                        <img  src="blue.png" height="400px" width="400px" alt="" class="tshirt__img" color="#010101">
+                    </div>
+
+                    <div class="tshirt__colors">
+                        <span class="tshirt__color tshirt__colors-one active" primary="#A29596" color="#A29596"></span>
+                        <span class="tshirt__color tshirt__colors-two " primary="#010101" color="#010101"></span>
+                    </div>
+                </div>
+
+                <!--IFORMATION -->
+                <div class="info">
+                    <!--  DATA  -->
+                    <div class="data">
+                        <span class="data__subtitle">ZARA</span>
+                        <h1 class="data__title">T-SHIRT</h1>
+                        <p class="data__description">Oversize T-shirt made of compact cotton. Round neck and short sleeves.</p>
+                    </div>
+
+                    <!-- ACTIONS -->
+                    <div class="actions">
+                        <!--SIZE -->
+                        <div class="size">
+                            <h3 class="size__title">SIZES</h3>
+                            <div class="size__content">
+                                <span class="size__tallas active">
+                                    XS
+                                </span>
+                                <span class="size__tallas">
+                                    S
+                                </span>
+                                <span class="size__tallas">
+                                    L
+                                </span>
+                            </div>
+                        </div>
+
+                        <!--  QUANTITY  -->
+                        <div class="quantity">
+                            <h3 class="quantity__title">QUANTITY</h3>
+                            <div class="quantity__content"> 
+                                <span>-</span>
+                                <span>1</span>
+                                <span>+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRICE -->
+                    <div class="price">
+                        <span class="price_title">$110.00</span>
+                        <a href="#" class="price_button">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- MAIN -->
+        <script src="main.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+    const quantityElement = document.querySelector('.quantity__content span:nth-child(2)');
+    const increaseButton = document.querySelector('.quantity__content span:nth-child(3)');
+    const decreaseButton = document.querySelector('.quantity__content span:nth-child(1)');
+
+    // Increase quantity
+    increaseButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityElement.innerText);
+        quantityElement.innerText = currentQuantity + 1;
+    });
+
+    // Decrease quantity (not below 1)
+    decreaseButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityElement.innerText);
+        if (currentQuantity > 1) {
+            quantityElement.innerText = currentQuantity - 1;
+        }
+    });
+});
+
+        </script>   
+         </body>
+</html>
